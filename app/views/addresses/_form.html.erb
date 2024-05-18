@@ -1,0 +1,28 @@
+<div class="grid gap-5">
+  <h1 class="text-lg font-bold">Enter your address</h1>
+  <%= form_for address do |f| %>
+    <div class="grid gap-4">
+      <div class="grid gap-1">
+        <%= f.label :street %>
+        <%= f.text_field :street %>
+      </div>
+
+      <div class="grid gap-1">
+        <%= f.label :locality, "City" %>
+        <%= f.text_field :locality %>
+      </div>
+
+      <div class="grid gap-1">
+        <%= f.label :division, "State" %>
+        <%= f.text_field :division %>
+      </div>
+
+      <div class="grid gap-1">
+        <%= f.label :postal_code %>
+        <%= f.text_field :postal_code %>
+      </div>
+
+      <%= f.submit "Get Forecast", class: "text-md border-[1px] p-4 hover:cursor-pointer hover:bg-gray-100" %>
+    </div>
+  <% end %>
+</div>
