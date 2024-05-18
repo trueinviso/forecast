@@ -9,7 +9,10 @@ class AddressesController < ApplicationController
     @address = FindOrInitializeAddress.new(address_params).call
 
     if @address.save
-      redirect_to forecasts_path(address_id: @address.id)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to root_path }
+      end
     else
       render :new
     end

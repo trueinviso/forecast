@@ -9,15 +9,15 @@ class FindOrInitializeAddress
   end
 
   def call
-    address = Address.find_or_initialize_by(full_address:)
+    address = Address.find_or_initialize_by(full_address: full_address)
 
     return address if address.persisted?
 
     address.assign_attributes(
-      street:,
-      locality:,
-      division:,
-      postal_code:
+      street: street,
+      locality: locality,
+      division: division,
+      postal_code: postal_code,
     )
 
     address
@@ -25,7 +25,7 @@ class FindOrInitializeAddress
 
   private
 
-  attr_reader :street, :locality, :divisiion, :postal_code
+  attr_reader :street, :locality, :division, :postal_code
 
   def full_address
     [street, locality, division, postal_code].compact.join(', ')
