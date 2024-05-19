@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_518_180_542) do
-  create_table 'addresses', force: :cascade do |t|
-    t.string 'street', null: false
-    t.string 'locality', null: false
-    t.string 'division', null: false
-    t.string 'postal_code', null: false
-    t.string 'full_address', null: false
-    t.float 'latitude'
-    t.float 'longitude'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['full_address'], name: 'index_addresses_on_full_address', unique: true
+ActiveRecord::Schema[7.1].define(version: 2024_05_18_180542) do
+  create_table "addresses", force: :cascade do |t|
+    t.string "street", null: false
+    t.string "locality", null: false
+    t.string "division", null: false
+    t.string "postal_code", null: false
+    t.string "full_address", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_address"], name: "index_addresses_on_full_address", unique: true
   end
+
 end

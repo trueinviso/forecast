@@ -24,7 +24,6 @@ module Weather
 
     attr_reader :client, :address, :from_cache
 
-
     def json
       JSON.parse(client.get("forecast", params).body)
     end
