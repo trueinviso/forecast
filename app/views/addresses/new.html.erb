@@ -1,11 +1,13 @@
 <div class="flex space-x-20">
   <div id="new_address_id">
     <h1 class="text-lg font-bold mb-5">Enter your address</h1>
-    <%= render "form", address: @address %>
+    <%= turbo_frame_tag :address_form do %>
+      <%= render "form", address: @address %>
+    <% end %>
   </div>
 
   <div class="">
-    <h1 class="text-lg font-bold mb-5">Current Weather</h1>
+    <h1 class="text-lg font-bold mb-10">Current Weather</h1>
     <%= turbo_frame_tag :forecast do %>
       <div> Enter your address to see the forecast in your area.</div>
     <% end %>

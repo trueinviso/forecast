@@ -17,7 +17,15 @@ class AddressesController < ApplicationController
         format.html { redirect_to root_path }
       end
     else
-      render :new
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update(
+            :address_form,
+            partial: "addresses/form",
+            locals: { address: @address },
+          )
+        end
+      end
     end
   end
 
