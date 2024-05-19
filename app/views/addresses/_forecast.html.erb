@@ -1,9 +1,66 @@
-<div>
-  <div>Address: <%= address.full_address %></div>
-  <div>From cache: <%= forecast.from_cache? %>
-  <div>Current Temperature: <%= weather[:temperature] %></div>
-  <div>7 day forecast:</div>
-  <% weather[:daily_high].each_with_index do |temp, i| %>
-    <div>Date: <%= weather[:time][i] %> High: <%= temp %></div>
-  <% end %>
+<div class="relative overflow-x-auto mb-5">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Address
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Current Temperature
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Cache?
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          <%= address.full_address %>
+        </th>
+        <td class="px-6 py-4">
+          <%= weather[:temperature] %> °F
+        </td>
+        <td class="px-6 py-4">
+          <%= forecast.from_cache? %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<h1 class="text-lg font-bold mb-5">7 Day Extended Forecast</h1>
+
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Date
+        </th>
+        <th scope="col" class="px-6 py-3">
+          High
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Low
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% weather[:daily_high].each_with_index do |temp, i| %>
+        <tr class="bg-white border-b">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            <%= Date.parse(weather[:time][i]).strftime("%B %d, %Y") %>
+          </th>
+          <td class="px-6 py-4">
+            <%= temp %> °F
+          </td>
+          <td class="px-6 py-4">
+            <%= weather[:daily_low][i] %> °F
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

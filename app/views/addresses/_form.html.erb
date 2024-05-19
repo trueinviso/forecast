@@ -2,26 +2,52 @@
   <%= form_for address do |f| %>
     <div class="grid gap-4">
       <div class="grid gap-1">
-        <%= f.label :street %>
-        <%= f.text_field :street %>
+        <%= f.label :street, class: "block text-sm font-medium text-gray-900" %>
+        <%= f.text_field :street,
+          class: class_names(
+            "bg-gray-50 border border-gray-300 text-gray-900",
+            "text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500",
+            "block w-full p-2.5",
+          ) %>
       </div>
 
       <div class="grid gap-1">
-        <%= f.label :locality, "City" %>
-        <%= f.text_field :locality %>
+        <%= f.label :locality, "City", class: "block text-sm font-medium text-gray-900" %>
+        <%= f.text_field :locality,
+          class: class_names(
+            "bg-gray-50 border border-gray-300 text-gray-900",
+            "text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500",
+            "block w-full p-2.5",
+          ) %>
       </div>
 
       <div class="grid gap-1">
-        <%= f.label :division, "State" %>
-        <%= f.text_field :division %>
+        <%= f.label :division, "State", class: "block text-sm font-medium text-gray-900" %>
+        <%= f.text_field :division,
+          class: class_names(
+            "bg-gray-50 border border-gray-300 text-gray-900",
+            "text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500",
+            "block w-full p-2.5",
+          ) %>
       </div>
 
       <div class="grid gap-1">
-        <%= f.label :postal_code %>
-        <%= f.text_field :postal_code %>
+        <%= f.label :postal_code, class: "block text-sm font-medium text-gray-900" %>
+        <%= f.text_field :postal_code,
+          class: class_names(
+            "bg-gray-50 border border-gray-300 text-gray-900",
+            "text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500",
+            "block w-full p-2.5",
+          ) %>
       </div>
 
-      <%= f.submit "Get Forecast", class: "text-md border-[1px] p-4 hover:cursor-pointer hover:bg-gray-100" %>
+      <%= f.submit "Get Forecast",
+        class: class_names(
+          "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4",
+          "focus:outline-none focus:ring-blue-300 font-medium",
+          "rounded-lg text-sm w-full sm:w-auto px-5 py-2.5",
+          "text-center hover:cursor-pointer",
+        ) %>
     </div>
   <% end %>
 </div>

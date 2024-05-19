@@ -34,7 +34,7 @@ module Weather
         longitude: address.longitude,
         temperature_unit: "fahrenheit",
         current: "temperature_2m",
-        daily: "temperature_2m_max",
+        daily: "temperature_2m_max,temperature_2m_min",
       }
     end
 
