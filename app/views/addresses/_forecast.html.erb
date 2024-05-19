@@ -1,3 +1,9 @@
 <div>
   <div>Address: <%= address.full_address %></div>
+  <div>From cache: <%= forecast.from_cache? %>
+  <div>Current Temperature: <%= weather[:temperature] %></div>
+  <div>7 day forecast:</div>
+  <% weather[:daily_high].each_with_index do |temp, i| %>
+    <div>Date: <%= weather[:time][i] %> High: <%= temp %></div>
+  <% end %>
 </div>

@@ -9,6 +9,9 @@ class AddressesController < ApplicationController
     @address = FindOrInitializeAddress.new(address_params).call
 
     if @address.save
+      @forecast = Weather::Forecast.new(@address)
+      @weather = @forecast.call
+
       respond_to do |format|
         format.turbo_stream
         format.html { redirect_to root_path }
